@@ -49,5 +49,19 @@ public class MovieData{
 	String languageid;
 	String length;
 	String rating;
+	public String getActorFirstName() {
+		return actorFirstName;
+	}
+	public void setActorFirstName(String actorFirstName) {
+		this.actorFirstName = actorFirstName;
+	}
+	public String getActorLastName() {
+		return actorLastName;
+	}
+	public void setActorLastName(String actorLastName) {
+		this.actorLastName = actorLastName;
+	}
+	String actorFirstName;
+	String actorLastName;
 	
 }

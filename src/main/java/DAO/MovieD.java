@@ -76,7 +76,9 @@ public class MovieD {
 		
 		
 		public ArrayList<MovieData> getMovieInfo(String tbl){
-			String sql = "SELECT * FROM " + tbl  + ";" ; 
+			//String sql = "SELECT * FROM " + tbl  + ";" ; 
+			
+			String sql = "select * from "+ tbl +  ";";
 			
 			List<Map<String, Object>> res1 = runSQL(sql) ; 
 			
@@ -110,6 +112,9 @@ public class MovieD {
 				Object rating = (Object)row.get("rating");
 				film.setRating(rating.toString());
 				
+				
+				
+				
 				data.add(film);
 			}
 			
@@ -119,6 +124,7 @@ public class MovieD {
 		public MovieData getMovieDetailInfo(String filmid,String tbl){
 			int fID = Integer.parseInt(filmid);
 			String sql = "SELECT * FROM " + tbl  + " WHERE film_id="+fID+";" ; 
+			
 			
 			Map<String, Object> res1 = runSQLForDetail(sql) ; 
 			
@@ -151,6 +157,7 @@ public class MovieD {
 				Object rating = (Object)res1.get("rating");
 				film.setRating(rating.toString());
 				
+				
 			
 			return film;
 		}
@@ -180,6 +187,103 @@ public class MovieD {
 			}
 			return res;
 		}
+		
+		public ArrayList<MovieData> getMovieInfoForSearch(String sval,String tbl){
+			//String sql = "SELECT * FROM " + tbl  + ";" ;
+			
+			String sql= "select * from "+tbl+" f join film_actor fa on f.film_id=fa.film_id join actor_info ai on fa.actor_id=ai.actor_id where f.title like '%"+sval+"%' or f.description like '%"+sval+"%' or ai.first_name like '%"+sval+"%' or ai.last_name like '%"+sval+"%';"; 
+			
+			List<Map<String, Object>> res1 = runSQL(sql) ; 
+			
+			if(res1.size() == 0) return null;
+			
+			ArrayList<MovieData> data =  new ArrayList<MovieData>();
+			
+			for(int i = 0; i < res1.size(); i++) {
+				Map<String, Object> row = res1.get(i);
+				MovieData film = new MovieData();
+				
+				
+				Object filmID = (Object) row.get("film_id");
+				film.setFilmID(filmID.toString());
+				
+				Object title = (Object) row.get("title");
+				film.setTitle(title.toString());
+				
+				Object description = (Object) row.get("description");
+				film.setDescription(description.toString());
+				
+				Object releaseYear = (Object) row.get("release_year");
+				film.setReleaseYear(releaseYear.toString());
+				
+				Object languageid = (Object)row.get("language_id");
+				film.setLanguageid(languageid.toString());
+				
+				Object length = (Object)row.get("length");
+				film.setLength(length.toString());
+				
+				Object rating = (Object)row.get("rating");
+				film.setRating(rating.toString());
+				
+				Object actorFirstName=(Object)row.get("first_name");
+				film.setActorFirstName(actorFirstName.toString());
+
+				Object actorLastName=(Object)row.get("last_name");
+				film.setActorLastName(actorLastName.toString());
+				
+				data.add(film);
+			}
+			
+			return data;
+		}
+
+		public ArrayList<MovieData> getMoviesOfGenre(String genre,String tbl) {
+			// TODO Auto-generated method stub
+			String sql = "select * from "+ tbl +" where description like \"%"+genre+"%\" ;";
+			
+			List<Map<String, Object>> res1 = runSQL(sql) ; 
+			
+			if(res1.size() == 0) return null;
+			
+			ArrayList<MovieData> data =  new ArrayList<MovieData>();
+			
+			for(int i = 0; i < res1.size(); i++) {
+				Map<String, Object> row = res1.get(i);
+				MovieData film = new MovieData();
+				
+				
+				Object filmID = (Object) row.get("film_id");
+				film.setFilmID(filmID.toString());
+				
+				Object title = (Object) row.get("title");
+				film.setTitle(title.toString());
+				
+				Object description = (Object) row.get("description");
+				film.setDescription(description.toString());
+				
+				Object releaseYear = (Object) row.get("release_year");
+				film.setReleaseYear(releaseYear.toString());
+				
+				Object languageid = (Object)row.get("language_id");
+				film.setLanguageid(languageid.toString());
+				
+				Object length = (Object)row.get("length");
+				film.setLength(length.toString());
+				
+				Object rating = (Object)row.get("rating");
+				film.setRating(rating.toString());
+				
+				
+				
+				
+				data.add(film);
+			}
+			
+			return data;
+		}
+		
+		
+		
 	}
 
 

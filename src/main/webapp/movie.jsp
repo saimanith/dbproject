@@ -4,6 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+.outerbox{border:1px solid;margin-left:10px}
+</style>
 <meta charset="UTF-8">
 <title>Movies</title>
 
@@ -11,45 +14,34 @@
 
 <body>
 <c:set var = "count" scope = "page" value = "${0}"/>
+<table>
 <c:forEach var="movie" items="${movieList}">
-
-				<div class="outerbox">
-				<%-- <h1>${movieList.get(count+1).filmID}</h1> --%>
+<tr>
+				<!-- <div class="outerbox"> -->
+				 <td>
 				<div class="image">
-				<img src=" https://static-prod.adweek.com/wp-content/uploads/2020/04/social-distance-movies-bad-boy-2020.jpg" width="300" height="300">
+				<img src=" https://static-prod.adweek.com/wp-content/uploads/2020/04/social-distance-movies-bad-boy-2020.jpg" 
+				width="200" height="200">
 				</img></div>
-				<h2>${movie.filmID }</h2>
-				<a href="<%=request.getContextPath()%>/MovieDetailPage?movieItem=${movie.filmID}">${movie.title}</a>
-				<p>${movie.description }</p>
-				<p>${movie.releaseYear }</p>
-<%-- 				<c:set var="count" value="${count + 1}" scope="page"/> --%>
- 				</div>
-				
-			
-		</c:forEach>
-<%-- 	<table>
-		<thead>
-			<tr>
-				<th>Film ID</th>
-				<th>Title</th>
-				<th>Description</th>
-				<th>Release year</th>
-			</tr>
-		</thead>
-		<c:forEach var="movie" items="${movieList}">
-			<tr>
-				
-				<td>
-				<div class="outerbox">
-				<h2>${movie.filmID }</h2>
-				<p>${movie.title }</p>
-				<p>${movie.description }</p>
-				<p>${movie.releaseYear }</p>
-				</div>
-				
 				</td>
-			</tr>
-		</c:forEach>
-	</table> --%>
+				<td>
+				<h2>${movie.filmID }</h2>
+				</td>
+				<td>
+				<a href="<%=request.getContextPath()%>/MovieDetailPage?movieItem=${movie.filmID}">${movie.title}</a>
+				</td>
+				<td>
+				<h5>${movie.description }</h5>
+				</td>
+				<td>
+				<h5>${movie.releaseYear }</h5>
+				</td>
+<!--  				</div> -->
+
+		</tr>		
+			
+</c:forEach>
+</table>
+
 </body>
 </html>

@@ -37,7 +37,7 @@ public class MovieServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		//String button = request.getParameter("moviebutton");
-		//System.out.println("----------->"+button);
+		System.out.println("----------->"+request.getParameter("Moviesname"));
 		MovieD dao =new MovieD();
 //		
 		
