@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>CS5000</title>
+<title>MoviesInfo</title>
 <style>
 .tile1{height:210px; width:210px;float:left; margin-top:5px;  margin-left:35%; margin-right:5px;}
 .tile2{height:210px; width:210px;float:left; margin-top:5px;  ; margin-right:30%;}
