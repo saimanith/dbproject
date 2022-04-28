@@ -21,31 +21,33 @@ import Model.MovieData;
 @WebServlet("/Movies")
 public class MovieServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MovieServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public MovieServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
-		//String button = request.getParameter("moviebutton");
-		System.out.println("----------->"+request.getParameter("Moviesname"));
-		MovieD dao =new MovieD();
+		// String button = request.getParameter("moviebutton");
+		System.out.println("----------->" + request.getParameter("Moviesname"));
+		MovieD dao = new MovieD();
 //		
-		
+
 		ArrayList<MovieData> movieres = dao.getMovieInfo("film");
 		request.setAttribute("movieList", movieres);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("movie.jsp");
 		dispatcher.forward(request, response);
-			
+
 //		PrintWriter out = response.getWriter();
 //		out.println("<table width=80% style=height:10% cellpadding=10 border=1>");
 //		out.println("<thead>");
@@ -91,9 +93,11 @@ public class MovieServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

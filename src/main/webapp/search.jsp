@@ -8,39 +8,31 @@
 <meta charset="UTF-8">
 <title>searchresults</title>
 <style type="text/css">
-
 table {
-  border-collapse: collapse;
-  width: 90%;
-  margin-left:4%;
+	border-collapse: collapse;
+	width: 90%;
+	margin-left: 4%;
 }
 
 th, td {
-  padding: 8px;
-  text-align: left;
-  border: 2px solid #ddd;
-  border-color: black;
+	padding: 8px;
+	text-align: left;
+	border: 2px solid #ddd;
+	border-color: black;
 }
 
-
- <% pageContext.setAttribute("colors", new String[] {"#1C6E8C","#F4EEA9","#F4CBC6","#B392AC","#AA4465","#93E1D8","#F7F6C5","#D6FF79","#7681B3","#F0CEA0","#F1BF98","#89AAE6"} , pageContext.SESSION_SCOPE); %>
-<c:set var = "i" scope = "page" value = "${0}"/>
-<c:set var = "j" scope = "page" value = "${0}"/>
-
-<c:forEach var="movie" items="${movieList}">
-
-tr:nth-child(${i}):hover{background-color: ${colors[j]};font-weight: bold;}
-<c:set var="i" value="${i+1}" />
-<c:set var="j" value="${(j+1)%12}" />
-
+<%pageContext.setAttribute("colors ", new String[] { "#1C6E8C","#F4EEA9","#F4CBC6","#B392AC","#AA4465","#93E1D8","#F7F6C5","#D6FF79","#7681B3","#F0CEA0","#F1BF98","#89AAE6"},pageContext.SESSION_SCOPE);%>
+<c:set var="i" scope="page" value="${0}"/>
+<c:set var="j" scope="page" value="${0}"/>
+<c:forEach var ="movie " items ="${movieList}">
+tr:nth-child( ${i}):hover {	background-color: ${colors[j]};font-weight:bold;}
+<c:set var ="i" value ="${i+1}"/>
+<c:set var ="j" value ="${(j+1)%12}"/>
 </c:forEach>
-
-
-
 </style>
 
 </head>
-<body style="background: #dcdcdc">
+<body>
 	<c:set var="count" scope="page" value="${0}" />
 	<table>
 		<tr>

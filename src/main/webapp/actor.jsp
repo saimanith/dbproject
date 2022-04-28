@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,21 +25,17 @@ th, td {
 <% pageContext.setAttribute("colors", new String[] {"#1C6E8C","#F4EEA9","#F4CBC6","#B392AC","#AA4465","#93E1D8","#F7F6C5","#D6FF79","#7681B3","#F0CEA0","#F1BF98","#89AAE6"} , pageContext.SESSION_SCOPE); %>
 <c:set var = "i" scope = "page" value = "${0}"/>
 <c:set var = "j" scope = "page" value = "${0}"/>
-
 <c:forEach var="actor" items="${actorList}">
-
 tr:nth-child(${i}):hover{background-color: ${colors[j]};font-weight: bold;}
 <c:set var="i" value="${i+1}" />
 <c:set var="j" value="${(j+1)%12}" />
-
 </c:forEach>
-
 </style>
 </head>
 
 
 
-<body style="background: #dcdcdc">
+<body>
 	<c:set var="count" scope="page" value="${0}" />
 	<table>
 		<tr>
@@ -60,13 +56,14 @@ tr:nth-child(${i}):hover{background-color: ${colors[j]};font-weight: bold;}
 				<td>
 					<p>${actor.lastName}</p>
 				</td>
-				<td>
-				<c:set var="filmsInfoParts" value="${fn:split(actor.filmsInfo, ';')}" />
-				<c:forEach var="film" items="${filmsInfoParts}">
-					<p>${film}</p>
-				</c:forEach>
-					
-				</td>
+				<td><c:set var="i" scope="page" value="${0}" /> <c:set
+						var="filmsInfoParts" value="${fn:split(actor.filmsInfo, ';')}" />
+					<c:forEach var="film" items="${filmsInfoParts}">
+						<c:if test="${i le 1 }">
+							<p class="film">${film}</p>
+							<c:set var="i" value="${i+1}" />
+						</c:if>
+					</c:forEach> .......</td>
 
 			</tr>
 
