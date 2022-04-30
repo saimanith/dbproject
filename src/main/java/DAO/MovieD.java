@@ -167,7 +167,7 @@ public class MovieD {
 			ResultSet rs = stmt.executeQuery(sql);
 			ResultSetMetaData metaData = rs.getMetaData();
 			int size = metaData.getColumnCount();
-			System.out.println("&&&&&&&&&" + size);
+			//System.out.println("&&&&&&&&&" + size);
 			while (rs.next()) {
 				for (int i = 1; i <= size; i++) {
 					res.put(metaData.getColumnName(i), rs.getObject(i));

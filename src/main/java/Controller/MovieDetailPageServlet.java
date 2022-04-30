@@ -44,10 +44,10 @@ public class MovieDetailPageServlet extends HttpServlet {
 		request.setAttribute("movieList", movieres);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("moviedetail.jsp");
 		dispatcher.forward(request, response);
-		System.out.println("------>" + movieres.getFilmID());
-		System.out.println("------>" + movieres.getTitle());
-		System.out.println("------>" + movieres.getDescription());
-		System.out.println("------>" + movieres.getReleaseYear());
+//		System.out.println("------>" + movieres.getFilmID());
+//		System.out.println("------>" + movieres.getTitle());
+//		System.out.println("------>" + movieres.getDescription());
+//		System.out.println("------>" + movieres.getReleaseYear());
 
 	}
 

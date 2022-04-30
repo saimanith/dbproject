@@ -111,7 +111,7 @@ h1.box {
 		<center>
 			<div class:"mainbox" >
 				<h1>
-					<u>Movies Information<u>
+					<u>Movie Space<u>
 				</h1>
 				<div class="row">
 					<form>
